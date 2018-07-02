@@ -1,0 +1,55 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: ubuntu
+    steps:
+      - checkout
+      - run:
+          name: Setup
+          command: |
+            apt update && apt install -y ca-certificates hugo git
+            git submodule sync
+            git submodule update --init
+      - run:
+          name: Build
+          command: |
+            /usr/bin/hugo
+            mkdir -p workspace
+            tar -cvzf igu.io.tar.gz ./public
+            cp igu.io.tar.gz ./workspace
+      - store_artifacts:
+          path: igu.io.tar.gz
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - igu.io.tar.gz
+  deploy:
+    docker:
+      - image: circleci/python
+    steps:
+      - attach_workspace:
+          at: ./workspace
+      - run:
+          name: Setup
+          command: pip install awscli --upgrade --user
+      - run:
+          name: Deploy
+          command: |
+            cp ./workspace/igu.io.tar.gz ./
+            tar -xvf igu.io.tar.gz
+            /home/circleci/.local/bin/aws s3 sync public s3://igu.io
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          context: igu-io-production
+          filters:
+            branches:
+              only: master
+          requires:
+            - build
