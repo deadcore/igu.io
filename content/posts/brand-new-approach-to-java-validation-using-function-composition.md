@@ -1,7 +1,7 @@
 ---
 title: "Brand New Approach to Java Validation Using Function Composition"
 date: 2018-01-29T13:33:13+00:00
-draft: true
+draft: false
 ---
 
 I've got to say, I thought the **how to write Java validation** was done to death until I had to write one myself. The task was simple but no one provided a testable, scalable and ultimately readable approach.

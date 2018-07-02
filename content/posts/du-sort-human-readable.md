@@ -1,7 +1,7 @@
 ---
 title: "du - Sort Human Readable"
 date: 2017-09-26T07:07:00+00:00
-draft: true
+draft: false
 ---
 
 Quite a lot of the time we have to find the size of a number of directories to troubleshoot which one are taking up all the space. However how do you find the largest of directories if you have a fair few, sometimes seeing the woods through the trees can be very hard

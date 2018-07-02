@@ -1,7 +1,7 @@
 ---
 title: "Remove Old Docker Images"
 date: 2017-09-26T13:30:56+00:00
-draft: true
+draft: false
 ---
 
 Don't get me wrong I like [Docker](https://www.docker.com/), but my god it has some flaws.

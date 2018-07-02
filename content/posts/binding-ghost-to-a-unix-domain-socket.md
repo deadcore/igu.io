@@ -1,7 +1,7 @@
 ---
 title: "Binding Ghost to a Unix Domain Socket"
 date: 2017-09-29T13:32:37+00:00
-draft: true
+draft: false
 ---
 
 So while I was setting up [igu](https://igu.io), like many people I needed to setup which port [Ghost](https://ghost.org/) would listen on. While digging through the documentation I found that Ghost could bind to a Unix Domain Socket, so lets give that a go instead

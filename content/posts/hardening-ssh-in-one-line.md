@@ -1,7 +1,7 @@
 ---
 title: "Hardening SSH in One Line"
 date: 2017-09-26T19:43:39+00:00
-draft: true
+draft: false
 ---
 
 Many moons ago I used to manage several hundred servers for a company I worked for. Whilst it was fun it also proved very tiresome as menial tasks, such as changing the port SSH listens on, becomes very tiresome moving server to server.
