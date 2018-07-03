@@ -2,3 +2,9 @@ baseURL = "https://igu.io/"
 languageCode = "en-us"
 title = "igu.io"
 theme = "ananke"
+enableRobotsTXT = true
+
+[params]
+  description = "Just say no"
+  github = "https://github.com/deadcore"
+  linkedin = "https://www.linkedin.com/in/jack-liddiard-a2701926/"

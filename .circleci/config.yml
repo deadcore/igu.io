@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Build
           command: |
-            /usr/bin/hugo
+            HUGO_ENV=production /usr/bin/hugo
             mkdir -p workspace
             tar -cvzf igu.io.tar.gz ./public
             cp igu.io.tar.gz ./workspace
