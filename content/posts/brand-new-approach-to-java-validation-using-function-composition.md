@@ -7,6 +7,7 @@ draft: false
 I've got to say, I thought the **how to write Java validation** was done to death until I had to write one myself. The task was simple but no one provided a testable, scalable and ultimately readable approach.
 
 Without sounding brash they were all based around the died to death and broken mechanism of:
+
 * Create an `interface` called `ValidationRule` with a single method called `validate`.
 * Iterate over a collection of `ValidationRule` and pass your entity in
 * Collect the results to a list
@@ -193,8 +194,7 @@ public interface UserValidation extends Function<User, Set<Rules>> {
     }
 
     default UserValidation and(final UserValidation other) {
-        return user ->
-        {
+        return user -> {
             final Set<Rules> left = this.apply(user);
             final Set<Rules> right = other.apply(user);
 

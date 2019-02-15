@@ -1,10 +1,14 @@
 baseURL = "https://igu.io/"
 languageCode = "en-us"
 title = "igu.io"
-theme = "ananke"
+theme = "terminal"
 enableRobotsTXT = true
+paginate = 5
 
 [params]
+  contentTypeName = "posts"
+  themeColor = "blue"
   description = "Just say no"
   github = "https://github.com/deadcore"
   linkedin = "https://www.linkedin.com/in/jack-liddiard-a2701926/"
+  showMenuItems = 2
