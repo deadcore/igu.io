@@ -2,10 +2,8 @@
 author = "Jack Liddiard"
 categories = ["Java", "Functional Programing"]
 tags = ["tutorial"]
-date = "2018-01-29"
+date = "2019-01-29"
 description = "The task was simple but no one provided a testable, scalable and ultimately readable approach."
-featured = "pic03.jpg"
-featuredalt = "Pic 3"
 featuredpath = "date"
 linktitle = ""
 title = "Brand New Approach to Java Validation Using Function Composition"

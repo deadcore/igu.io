@@ -2,10 +2,8 @@
 author = "Jack Liddiard"
 categories = ["Linux"]
 tags = ["tutorial"]
-date = "2017-09-26"
+date = "2018-07-22"
 description = "Quite a lot of the time we have to find the size of a number of directories to troubleshoot"
-featured = "pic03.jpg"
-featuredalt = "Pic 3"
 featuredpath = "date"
 linktitle = ""
 title = "du - Sort Human Readable"

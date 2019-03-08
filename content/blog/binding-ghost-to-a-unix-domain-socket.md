@@ -2,10 +2,8 @@
 author = "Jack Liddiard"
 categories = ["Java", "Functional Programing"]
 tags = ["tutorial"]
-date = "2017-09-29"
+date = "2018-09-29"
 description = "Bind GHost to a Unix domain socket"
-featured = "pic03.jpg"
-featuredalt = "Pic 3"
 featuredpath = "date"
 linktitle = ""
 title = "Binding Ghost to a Unix Domain Socket"

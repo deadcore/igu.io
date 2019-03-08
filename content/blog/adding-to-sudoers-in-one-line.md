@@ -2,10 +2,8 @@
 author = "Jack Liddiard"
 categories = ["Linux"]
 tags = ["tutorial"]
-date = "2017-09-13"
+date = "2018-09-13"
 description = "Recently I had to build a startup script which added a user to the sudoers file. Here's what I learned"
-featured = "pic03.jpg"
-featuredalt = "Pic 3"
 featuredpath = "date"
 linktitle = ""
 title = "Adding to Sudoers in One Line"

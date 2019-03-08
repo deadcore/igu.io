@@ -2,10 +2,8 @@
 author = "Jack Liddiard"
 categories = ["Docker"]
 tags = ["tutorial"]
-date = "2017-09-26"
+date = "2018-08-26"
 description = "One of the quirks I've found is Docker never cleans up it's self"
-featured = "pic03.jpg"
-featuredalt = "Pic 3"
 featuredpath = "date"
 linktitle = ""
 title = "Remove Old Docker Images"

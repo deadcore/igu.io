@@ -2,10 +2,8 @@
 author = "Jack Liddiard"
 categories = ["Linux", "SSH"]
 tags = ["tutorial"]
-date = "2017-09-21"
+date = "2018-09-21"
 description = "Sometimes you just want to change the port which SSH listens on"
-featured = "pic03.jpg"
-featuredalt = "Pic 3"
 featuredpath = "date"
 linktitle = ""
 title = "Changing SSH Port in One Line"

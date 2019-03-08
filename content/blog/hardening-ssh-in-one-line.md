@@ -2,10 +2,8 @@
 author = "Jack Liddiard"
 categories = ["Linux", "SSH"]
 tags = ["tutorial"]
-date = "2017-09-26"
+date = "2018-08-13"
 description = "A one liner to harden SSH"
-featured = "pic03.jpg"
-featuredalt = "Pic 3"
 featuredpath = "date"
 linktitle = ""
 title = "Hardening SSH in One Line"
