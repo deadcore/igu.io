@@ -1,24 +1,32 @@
----
-title: "Binding Ghost to a Unix Domain Socket"
-date: 2017-09-29T13:32:37+00:00
-draft: false
----
++++
+author = "Jack Liddiard"
+categories = ["Java", "Functional Programing"]
+tags = ["tutorial"]
+date = "2017-09-29"
+description = "Bind GHost to a Unix domain socket"
+featured = "pic03.jpg"
+featuredalt = "Pic 3"
+featuredpath = "date"
+linktitle = ""
+title = "Binding Ghost to a Unix Domain Socket"
+type = "post"
++++
 
 So while I was setting up [igu](https://igu.io), like many people I needed to setup which port [Ghost](https://ghost.org/) would listen on. While digging through the documentation I found that Ghost could bind to a Unix Domain Socket, so lets give that a go instead
 
 ## Solution
 `config.production.json`
-<pre>
+```
 "server": {
     "socket": {
 	    "path": "/tmp/igu-io.sock",
 	    "permissions": "0666"
 	}
 }
-</pre>
+```
 
 `/etc/nginx/sites-available/igu.io`
-<pre>
+```
 server {
     listen 80;
     server_name igu.io;
@@ -30,7 +38,7 @@ server {
 upstream igu {
     server unix:/tmp/igu-io.sock fail_timeout=0;
 }
-</pre>
+```
 
 ## What's Happening?
 Lets break this down
@@ -39,19 +47,19 @@ First off we have to ask the question what is a Unix domain socket? Well a Unix 
 
 The first thing to note is that even though we can see the socket on the file system by running `ls` against it
 
-<pre>
+```bash
 root@ghost:~$ ls -lash /tmp/igu-io.sock
 0 srw-rw-rw- 1 ghost ghost 0 Sep 28 07:11 /tmp/igu.io.socket
-</pre>
+```
 
 Nothing is written to disk. Processes reference Unix domain sockets as file system inodes, so the two processes can communicate by opening the same socket.
 
 
 Calling `file` on our socket furthers the existance of the socket
-<pre>
+```
 jackliddiard@ghost-001:~$ file /tmp/igu-io.sock
 /tmp/igu.io.socket: socket
-</pre>
+```
 
 ### Ghost
 The ghost config is super simple:

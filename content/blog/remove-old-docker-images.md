@@ -1,8 +1,16 @@
----
-title: "Remove Old Docker Images"
-date: 2017-09-26T13:30:56+00:00
-draft: false
----
++++
+author = "Jack Liddiard"
+categories = ["Docker"]
+tags = ["tutorial"]
+date = "2017-09-26"
+description = "One of the quirks I've found is Docker never cleans up it's self"
+featured = "pic03.jpg"
+featuredalt = "Pic 3"
+featuredpath = "date"
+linktitle = ""
+title = "Remove Old Docker Images"
+type = "post"
++++
 
 Don't get me wrong I like [Docker](https://www.docker.com/), but my god it has some flaws.
 
@@ -11,7 +19,9 @@ One of them is it keeps taking down our continues integration server ([gocd](htt
 One of the quirks I've found is Docker never cleans up it's self
 
 ## Solution
-<pre>docker images -q | xargs -r docker rmi</pre>
+```bash
+docker images -q | xargs -r docker rmi
+```
 
 ## What's Happening?
 So what an earth is happening?

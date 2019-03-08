@@ -1,3 +1,15 @@
 [submodule "themes/terminal"]
 	path = themes/terminal
 	url = https://github.com/panr/hugo-theme-terminal.git
+[submodule "themes/hugo-swift-theme"]
+	path = themes/hugo-swift-theme
+	url = git@github.com:onweru/hugo-swift-theme.git
+[submodule "themes/ghostwriter"]
+	path = themes/ghostwriter
+	url = git@github.com:jbub/ghostwriter.git
+[submodule "themes/hugo-theme-bleak"]
+	path = themes/hugo-theme-bleak
+	url = git@github.com:Zenithar/hugo-theme-bleak.git
+[submodule "themes/hugo-future-imperfect"]
+	path = themes/hugo-future-imperfect
+	url = git@github.com:jpescador/hugo-future-imperfect.git
