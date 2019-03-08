@@ -34,7 +34,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ./workspace
-      - install_bastion_credentials
       - aws-cli/install
       - aws-cli/configure:
           aws-region: eu-west-2
