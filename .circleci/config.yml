@@ -1,15 +1,17 @@
-version: 2
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.1
 
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: cibuilds/hugo:latest
     steps:
       - checkout
       - run:
           name: Setup
           command: |
-            apt update && apt install -y ca-certificates hugo git
             git submodule sync
             git submodule update --init
       - run:
@@ -31,9 +33,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ./workspace
-      - run:
-          name: Setup
-          command: pip install awscli --upgrade --user
+      - install_bastion_credentials
+      - aws-cli/install
+      - aws-cli/configure:
+          aws-region: eu-west-2
       - run:
           name: Deploy
           command: |
