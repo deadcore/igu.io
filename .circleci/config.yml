@@ -42,7 +42,7 @@ jobs:
           command: |
             cp ./workspace/igu.io.tar.gz ./
             tar -xvf igu.io.tar.gz
-            /home/circleci/.local/bin/aws s3 sync public s3://igu.io
+            aws s3 sync public s3://igu.io
 
 workflows:
   version: 2
