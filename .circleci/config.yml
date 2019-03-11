@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  aws-cli: circleci/aws-cli@0.1.1
+  aws-s3: circleci/aws-s3@1.0.0
 
 jobs:
   build:
@@ -17,31 +17,22 @@ jobs:
       - run:
           name: Build
           command: |
-            HUGO_ENV=production /usr/bin/hugo
-            mkdir -p workspace
-            tar -cvzf igu.io.tar.gz ./public
-            cp igu.io.tar.gz ./workspace
-      - store_artifacts:
-          path: igu.io.tar.gz
+            HUGO_ENV=production hugo --destination /tmp/workspace/public
       - persist_to_workspace:
-          root: workspace
+          root: /tmp/workspace
           paths:
-            - igu.io.tar.gz
+            - public
   deploy:
     docker:
       - image: circleci/python
     steps:
       - attach_workspace:
-          at: ./workspace
-      - aws-cli/install
-      - aws-cli/configure:
-          aws-region: eu-west-2
-      - run:
-          name: Deploy
-          command: |
-            cp ./workspace/igu.io.tar.gz ./
-            tar -xvf igu.io.tar.gz
-            aws s3 sync public s3://igu.io
+          at: /tmp/workspace
+      - aws-s3/sync:
+          from: '/tmp/workspace/public'
+          to: ' s3://igu.io'
+          arguments: --acl public-read --cache-control "max-age=86400"
+          overwrite: true
 
 workflows:
   version: 2
