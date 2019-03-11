@@ -33,7 +33,7 @@ jobs:
           aws-region: eu-west-2
       - run:
           name: Deploy
-          command: aws s3 sync public s3://igu.io
+          command: aws s3 sync /tmp/workspace/public s3://igu.io
 
 workflows:
   version: 2
