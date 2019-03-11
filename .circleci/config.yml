@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@1.0.0
+  aws-cli: circleci/aws-cli@0.1.1
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Build
           command: |
-            HUGO_ENV=production hugo --destination /tmp/workspace/public
+            HUGO_ENV=production hugo --destination /tmp/workspace/public --templateMetrics --templateMetricsHints --minify
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
@@ -28,11 +28,12 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - aws-s3/sync:
-          from: '/tmp/workspace/public'
-          to: ' s3://igu.io'
-          arguments: --acl public-read --cache-control "max-age=86400"
-          overwrite: true
+      - aws-cli/install
+      - aws-cli/configure:
+          aws-region: eu-west-2
+      - run:
+          name: Deploy
+          command: aws s3 sync public s3://igu.io
 
 workflows:
   version: 2
